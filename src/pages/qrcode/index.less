@@ -1,0 +1,34 @@
+@import "~@/assets/global.less";
+
+.qrcode-box {
+  padding-top: 20rem;
+  padding-bottom: 35rem;
+  &.bg{
+    background-color: #f0f2f5; 
+  }
+  .qrcode-img {
+    width: 223rem;
+    margin: 0 auto 16rem;
+  }
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon {
+      display: block;
+      width: 22rem;
+      height: 22rem;
+      background-image: url(/public/imgs/icon-xiaochengxu.png);
+      .bgImg(contain);
+    }
+    span {
+      font-size: 20rem;
+      margin-left: 5rem;
+    }
+  }
+}
+.content {
+  img {
+    width: 100%;
+  }
+}

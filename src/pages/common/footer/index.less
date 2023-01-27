@@ -1,0 +1,76 @@
+@import "~@/assets/global.less";
+footer {
+  padding: 60rem 20rem;
+  .contact-box {
+    .contact-title {
+      font-size: 24rem;
+      color: #444;
+      margin-bottom: 60rem;
+    }
+    .contact-list {
+      .contact-item {
+        color: #444;
+        margin-bottom: 34rem;
+        .key {
+          font-size: 17rem;
+          margin-bottom: 16rem;
+        }
+        .val {
+          font-size: 15rem;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .form {
+      label {
+        display: block;
+        margin-bottom: 16rem;
+        p {
+          font-size: 15rem;
+          color: #444;
+          margin-bottom: 12rem;
+        }
+        input {
+          width: 100%;
+          height: 40rem;
+          border-radius: 20rem;
+          background-color: #f4f4f4;
+          border: none;
+          outline: none;
+          padding-left: 20rem;
+          box-sizing: border-box;
+          font-size: 15rem;
+          &::placeholder {
+            padding-left: 10rem;
+            font-size: 15rem;
+          }
+        }
+        textarea {
+          box-sizing: border-box;
+          background-color: #f4f4f4;
+          width: 100%;
+          resize: none;
+          border: none;
+          outline: none;
+          height: 126rem;
+          border-radius: 20rem;
+          padding-left: 15px;
+          padding-top: 15px;
+          font-size: 15rem;
+        }
+      }
+      button {
+        width: 100%;
+        height: 40rem;
+        font-size: 15rem;
+        border-radius: 20rem;
+        border: none;
+        outline: none;
+        background-color: @mainColor;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,uesr-scalable=0" />
+  <title>加入我们</title>
+</head>
+
+<body>
+  <!-- 引入公共页头 -->
+  <%= require("html-loader!../common/header/index.html") %>
+    <div id="app">
+      <section class="contact-container">
+        <div class="contact-title">提供联系方式</div>
+        <div class="desc">申请：a资深工程师-前后端</div>
+        <form class="form" id="submit_message" @submit.prevent="formSubmit">
+          <input type="hidden" ref="title" value="a资深工程师-前后端" data-val="a资深工程师-前后端" v-model="title" name="title"
+            id="title">
+          <label for="">
+            <p>姓名</p>
+            <input type="text" v-model="fullname" name="fullname" id="fullname">
+          </label>
+          <label for="">
+            <p>联系电话</p>
+            <input type="text" v-model="tel" name="tel" id="tel">
+          </label>
+          <label for="">
+            <p>邮箱</p>
+            <input type="text" v-model="email" name="email" id="email">
+          </label>
+          <label for="">
+            <p>简历上传</p>
+            <div class="files">
+              <input type="text" v-model="cv" name="cv" id="cv">
+              <input v-if="isIos" class="btn iosbtn" ref="iosfiles" @change="iosFiles" type="file" ref="photo" accept="image/*"
+                placeholder="获取文件" multiple>
+              <div class="btn">获取文件</div>
+              <div class="show-file">
+                <div class="imgs" v-if="imgs.length">
+                  <img v-for="item in imgs" :src="item.filename" id="thumb" :alt="item.title">
+                </div>
+                <span v-if="imgs.length">{{imgs.length}}{{text}}</span>
+              </div>
+              <ul class="select-list" v-if="!isIos">
+                <li class="option-item">
+                  <input @change="photo" type="file" ref="photo" accept="image/*" multiple>
+                  <span>拍照或录像</span>
+                  <!-- <span>照片图库</span> -->
+                </li>
+                <!-- <li class="option-item">
+                  <input type="file"  @change="camera" ref="camera" multiple accept="image/*,video/*" capture="camera,camcorder">
+                  <span>拍照或录像</span>
+                </li> -->
+                <li class="option-item">
+                  <input type="file" @change="selectFile" ref="file" multiple>
+                  <span>选取文件</span>
+                </li>
+              </ul>
+            </div>
+          </label>
+          <button type="submit" class="submit">提交</button>
+        </form>
+      </section>
+      <div class="success">
+        <div class="info-area">
+          <img src="/public/imgs/icon-dui-white.svg" class="icon">
+          <div class="text">提交成功</div>
+        </div>
+        <div class="mask"></div>
+      </div>
+      <div class="loading">
+       <div class="box">
+        <i class="icon fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        <p>上传中...</p>
+       </div>
+      </div>
+    </div>
+    <%= require("html-loader!../common/showToast/index.html") %>
+      <script src="/public/js/vue.min.js"></script>
+</body>
+
+</html>

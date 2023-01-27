@@ -1,0 +1,196 @@
+@import "~@/assets/global.less";
+
+.contact-container{
+  padding: 0 20rem;
+  .contact-title{
+    font-size: 24rem;
+    margin-bottom: 26rem;
+  }
+  .desc{
+    font-size: 20rem;
+    margin-bottom: 34rem;
+  }
+  .form{
+    label{
+      display: block;
+      margin-bottom: 16rem;
+      p{
+        font-size: 15rem;
+        margin-bottom: 12rem;
+      }
+      input{
+        width: 100%;
+        height: 40rem;
+        border-radius: 20rem;
+        border-radius: 20rem;
+        border: none;
+        outline: none;
+        background-color: #F4F4F4;
+        padding-left: 20rem;
+        box-sizing: border-box;
+        font-size: 15rem;
+      }
+      .files{
+        position: relative;
+        display: flex;
+        .btn{
+          text-align: center;
+          width: 82rem;
+          height: 24rem;
+          line-height: 24rem;
+          border-radius: 12rem;
+          background-color: #DFDFDF;
+          color:@mainColor;
+          font-size: 15rem;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 11rem;
+          &.iosbtn{
+            position: absolute;
+            z-index: 9999;
+            opacity: 0;
+          }
+        }
+        .show-file{
+          display: flex;
+          align-items: center;
+          position: absolute;
+          left: 110rem;
+          top: 8rem;
+          height: 28rem;
+          .imgs{
+            display: flex;
+            img{
+              width: 23rem;
+              height: 24rem;
+              margin-right: 8rem;
+            }
+          }
+          span{
+            font-size: 15rem;
+          }
+        }
+        .select-list{
+          position: absolute;
+          display: none;
+          border-radius: 10rem;
+          width: 250rem;
+          top: 40rem;
+          background-image: linear-gradient(90deg,#e0e0e0, #f1f1f1);
+          .option-item{
+            display: flex;
+            height: 44rem;
+            font-size: 18rem;
+            align-items: center;
+            padding: 0 20rem;
+            box-sizing: border-box;
+            border-bottom: 1px solid #b7b7b9;
+            position: relative;
+            input{
+              display: block;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+              opacity: 0;
+            }
+            &:last-child{
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+    .submit{
+      width: 100%;
+      height: 40rem;
+      margin-top: 40rem;
+      border-radius: 20rem;
+      background-color: @mainColor;
+      border:none;
+      outline: none;
+      color:#fff;
+      font-size: 15rem;
+    }
+  }
+}
+.success{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .3;
+  }
+  .info-area{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 134rem;
+    height: 136rem;
+    border-radius: 5rem;
+    background-color: #444;
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .icon{
+      width: 44rem;
+      height: 44rem;
+      margin-bottom: 20rem;
+    }
+    .text{
+      font-size: 17rem;
+    }
+  }
+}
+.loading{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  .box{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .icon{
+      font-size: 24rem;
+      line-height: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // transform: translate(-50%, -50%);
+      z-index: 99999;
+      color:#fff;
+    }
+    p{
+      color:#fff;
+      text-align: center;
+      margin-top: 5rem;
+      font-size: 16rem;
+    }
+  }
+
+}

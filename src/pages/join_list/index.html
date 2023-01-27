@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,uesr-scalable=0" />
+  <title>加入我们</title>
+</head>
+
+<body>
+  <!-- 引入公共页头 -->
+  <%= require("html-loader!../common/header/index.html") %>
+    <section class="banner-container">
+      <img src="/public/imgs/join-banner.jpg" alt="">
+      <!-- <video src="/public/imgs/travel.ogv" controls></video> -->
+    </section>
+    <section class="join-container" id="app">
+      <div class="title">期待你的加入</div>
+      <div class="desc">
+        无论您来自哪里，学习和工作经历如何，如果您在自身领域有出众的才能，欢迎加入我们一起思考并构建未来
+      </div>
+      <div class="filter">
+        <label for="">
+          <p>搜索</p>
+          <input type="text" v-model="searchText" @blur="positionFilter">
+        </label>
+        <label for="">
+          <p>职位类别</p>
+          <input type="hidden" v-model="positionArr[index].label" class="hidden">
+          <div class="select-show" @click="selectToggle">
+            <span> {{positionArr[index].label}} </span>
+            <svg t="1646901702034" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              p-id="2693" width="96" height="96">
+              <path
+                d="M948.560332 281.179984c-13.765515-13.833053-36.127825-13.833053-49.89334 0L511.991302 668.591431 125.313565 281.179984c-13.763468-13.798261-36.093033-13.798261-49.856501 0-13.799284 13.798261-13.799284 36.161594 0 49.993624l410.857439 411.674037c7.067976 7.085372 16.402575 10.521634 25.675776 10.331299 9.274224 0.191358 18.608823-3.245927 25.677822-10.331299l410.891208-411.708829c6.863315-6.89913 10.331299-15.940041 10.331299-24.979928S955.423647 288.078091 948.560332 281.179984z"
+                p-id="2694"></path>
+            </svg>
+          </div>
+          <ul class="select" v-show="selectShow">
+            <li class="option" v-for="(item, index) in positionArr" :key="item.label" :data-val="item.val"
+              :class="{on:item.active}" @click="changeIndex(item,index)">{{item.label}}</li>
+          </ul>
+        </label>
+        <button @click="resetSelect">重置筛选条件</button>
+      </div>
+      <div class="join-wrapper">
+        <ul class="join-list" v-if="joinList && joinList.length">
+          <li class="join-item" v-for="item in joinList" :key="item.id">
+            <a :href="item.url">
+              <div class="join-title">{{item.title}}</div>
+              <div class="info">
+                <span v-for="(it, i) in item.info" v-show="i < 2" :key="it">{{i === 0 ? it : ' | ' + it}}</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="no-info" v-else>未找到结果</div>
+      </div>
+    </section>
+      <script src="/public/js/vue.min.js"></script>
+</body>
+
+</html>

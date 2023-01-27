@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,uesr-scalable=0">
+  <title>加入我们</title>
+<link href="/src/css/common.css" rel="stylesheet"><link href="/src/css/message.css" rel="stylesheet"></head>
+
+<body>
+  <!-- 引入公共页头 -->
+  <header> <div class="top-head"> <div class="left-layout"> <h1 class="logo"> <a href="/"> <img src="/public/imgs/logo.png" alt="中瓷控股"> </a> </h1> <ul class="menu-list"> <li class="menu-item"> <a href="">智慧中国</a> </li> <li class="menu-item"> <a href="">健康中国</a> </li> <li class="menu-item"> <a href="">文化中国</a> </li> </ul> </div> <div class="nav-btn"> <a>导航栏</a> </div> </div> </header> <div class="nav-container"> <div class="nav-wrapper"> <div class="nav-close"> <svg t="1646896530445" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2049" width="96" height="96"> <path d="M572.16 512l183.466667-183.04a42.666667 42.666667 0 1 0-60.586667-60.586667L512 451.84l-183.04-183.466667a42.666667 42.666667 0 0 0-60.586667 60.586667l183.466667 183.04-183.466667 183.04a42.666667 42.666667 0 0 0 0 60.586667 42.666667 42.666667 0 0 0 60.586667 0l183.04-183.466667 183.04 183.466667a42.666667 42.666667 0 0 0 60.586667 0 42.666667 42.666667 0 0 0 0-60.586667z" fill="#231F20" p-id="2050"></path> </svg> </div> <ul class="nav-list"> <li class="nav-item"> <a href="javascript:;">智慧药房</a> <i class="iconfont icon-youjiantou"></i> <ul class="nav-sublist"> <li class="nav-subitem nav-back"> <i class="iconfont icon-youjiantou"></i> <a>智慧药房</a> </li> <li class="nav-subitem"> <a href="product1.html">智慧取药柜</a> </li> <li class="nav-subitem"> <a href="product2.html">智慧输液器</a> </li> <li class="nav-subitem"> <a href="product3.html">智慧精麻柜</a> </li> </ul> </li> <li class="nav-item"> <a href="javascript:;">智慧病房</a> <i class="iconfont icon-youjiantou"></i> <ul class="nav-sublist"> <li class="nav-subitem nav-back"> <i class="iconfont icon-youjiantou"></i> <a>智慧病房</a> </li> <li class="nav-subitem"> <a href="product4.html">智能输液系统</a> </li> <li class="nav-subitem"> <a href="product1.html">移动数据终端</a> </li> </ul> </li> <li class="nav-item"> <a href="javascript:;">智慧文旅</a> <i class="iconfont icon-youjiantou"></i> <ul class="nav-sublist"> <li class="nav-subitem nav-back"> <i class="iconfont icon-youjiantou"></i> <a>智慧文旅</a> </li> <li class="nav-subitem"> <a href="product2.html">智慧文旅1</a> </li> <li class="nav-subitem"> <a href="product3.html">智慧文旅2</a> </li> </ul> </li> <li class="nav-item"> <a href="">区块链</a> <i class="iconfont icon-youjiantou"></i> </li> <li class="nav-item"> <a href="about.html">企业介绍</a> <i class="iconfont icon-youjiantou"></i> </li> <li class="nav-item"> <a href="join_list.html">加入我们</a> <i class="iconfont icon-youjiantou"></i> </li> </ul> </div> <div class="nav-mask"></div> </div>
+    <div id="app">
+      <section class="contact-container">
+        <div class="contact-title">提供联系方式</div>
+        <div class="desc">申请：a资深工程师-前后端</div>
+        <form class="form" id="submit_message" @submit.prevent="formSubmit">
+          <input type="hidden" ref="title" value="a资深工程师-前后端" data-val="a资深工程师-前后端" v-model="title" name="title" id="title">
+          <label for="">
+            <p>姓名</p>
+            <input type="text" v-model="fullname" name="fullname" id="fullname">
+          </label>
+          <label for="">
+            <p>联系电话</p>
+            <input type="text" v-model="tel" name="tel" id="tel">
+          </label>
+          <label for="">
+            <p>邮箱</p>
+            <input type="text" v-model="email" name="email" id="email">
+          </label>
+          <label for="">
+            <p>简历上传</p>
+            <div class="files">
+              <input type="text" v-model="cv" name="cv" id="cv">
+              <input v-if="isIos" class="btn iosbtn" ref="iosfiles" @change="iosFiles" type="file" ref="photo" accept="image/*" placeholder="获取文件" multiple="multiple">
+              <div class="btn">获取文件</div>
+              <div class="show-file">
+                <div class="imgs" v-if="imgs.length">
+                  <img v-for="item in imgs" :src="item.filename" id="thumb" :alt="item.title">
+                </div>
+                <span v-if="imgs.length">{{imgs.length}}{{text}}</span>
+              </div>
+              <ul class="select-list" v-if="!isIos">
+                <li class="option-item">
+                  <input @change="photo" type="file" ref="photo" accept="image/*" multiple="multiple">
+                  <span>拍照或录像</span>
+                  <!-- <span>照片图库</span> -->
+                </li>
+                <!-- <li class="option-item">
+                  <input type="file"  @change="camera" ref="camera" multiple accept="image/*,video/*" capture="camera,camcorder">
+                  <span>拍照或录像</span>
+                </li> -->
+                <li class="option-item">
+                  <input type="file" @change="selectFile" ref="file" multiple="multiple">
+                  <span>选取文件</span>
+                </li>
+              </ul>
+            </div>
+          </label>
+          <button type="submit" class="submit">提交</button>
+        </form>
+      </section>
+      <div class="success">
+        <div class="info-area">
+          <img src="/public/imgs/icon-dui-white.svg" class="icon">
+          <div class="text">提交成功</div>
+        </div>
+        <div class="mask"></div>
+      </div>
+      <div class="loading">
+       <div class="box">
+        <i class="icon fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        <p>上传中...</p>
+       </div>
+      </div>
+    </div>
+    <div class="alert-container"> <div class="text"> <div class="title">提交成功</div> <button class="sure">确定</button> </div> <div class="mask"></div> </div>
+      <script src="/public/js/vue.min.js"></script>
+<script src="/src/js/styles~about~index~join_list~join_view~message~product~product1~product2~product3~product4~qrcode~travel.js"></script><script src="/src/js/vendors~about~index~join_list~join_view~message~product~product1~product2~product3~product4~qrcode~travel.js"></script><script src="/src/js/message.js"></script></body>
+
+</html>
